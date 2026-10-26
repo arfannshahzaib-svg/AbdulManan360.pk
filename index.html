@@ -4,466 +4,332 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StudyHub | Student Portal</title>
+<meta name="description" content="StudyHub - Student learning portal for notes, quizzes and study resources.">
 <style>
 :root{
-  --green:#087f4b;
-  --dark:#075c38;
-  --light:#e9f8ef;
-  --bg:#f4faf6;
-  --white:#fff;
-  --text:#19382a;
-  --muted:#718278;
-  --border:#dcebe1;
-  --red:#dc3545;
-  --orange:#e99a18;
+  --green:#087f5b;
+  --dark:#064e3b;
+  --light:#ecfdf5;
+  --white:#ffffff;
+  --text:#18352c;
+  --muted:#6b8178;
+  --border:#dcece4;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;font-family:Arial,sans-serif;
-  color:var(--text);background:var(--bg)
-}
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:3px solid #7bd9a7;outline-offset:2px
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5faf7;
+  color:var(--text);
 }
 header{
-  background:var(--white);padding:15px 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--border);gap:12px
+  background:linear-gradient(120deg,#064e3b,#0c9b70);
+  color:white;
+  padding:20px 6%;
 }
-.logo{font-size:23px;font-weight:800;color:var(--green)}
-.logo span{color:#45a86c}
-.top-actions{display:flex;gap:8px;align-items:center}
-.container{max-width:1200px;margin:auto;padding:25px 18px}
-.hero{
-  background:linear-gradient(120deg,#d9f5e2,#f5fff7);
-  border:1px solid #c8e8d2;border-radius:20px;
-  padding:35px 28px;display:grid;
-  grid-template-columns:1.3fr .7fr;gap:25px;
-  align-items:center
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 12px}
-.hero p{color:#526b5c;line-height:1.7}
-.hero-art{
-  text-align:center;font-size:100px;
-  background:#fff9;border-radius:20px;padding:20px
-}
-.btn{
-  border:0;border-radius:9px;padding:11px 17px;
-  background:var(--green);color:white;font-weight:700
-}
-.btn:hover{filter:brightness(.94)}
-.btn-light{background:var(--light);color:var(--dark)}
-.btn-red{background:var(--red)}
-.btn-orange{background:var(--orange)}
-.btn-small{padding:7px 10px;font-size:12px}
-.section-title{display:flex;justify-content:space-between;
-align-items:center;gap:12px;margin:27px 0 15px}
-.section-title h2{margin:0;font-size:22px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.card{
-  background:white;border:1px solid var(--border);
-  border-radius:14px;padding:20px;box-shadow:0 3px 12px #12341a08
-}
-.feature-icon{font-size:27px;margin-bottom:10px}
-.card h3{margin:5px 0 9px;font-size:17px}
-.card p{color:var(--muted);line-height:1.6;font-size:14px}
-.stat{font-size:29px;font-weight:800;color:var(--green);margin:12px 0 5px}
-.muted{color:var(--muted);font-size:13px}
-nav{
-  display:flex;gap:8px;flex-wrap:wrap;
-  padding:12px 5%;background:white;border-bottom:1px solid var(--border)
-}
+.logo{font-size:25px;font-weight:800}
+.logo span{color:#a7f3d0}
+nav{display:flex;gap:8px;flex-wrap:wrap}
 nav button{
-  border:0;background:transparent;padding:10px 13px;
-  border-radius:8px;color:var(--text);font-weight:600
+  color:white;background:transparent;border:1px solid #ffffff55;
+  padding:10px 13px;border-radius:9px;cursor:pointer;font-weight:bold;
 }
-nav button:hover,nav button.active{background:var(--light);color:var(--green)}
-.page{display:none}
-.page.active{display:block}
-.form-card{max-width:480px;margin:25px auto}
-.form-card h2{text-align:center}
-.field{margin:15px 0}
-.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
-.field input,.field select{
-  width:100%;padding:12px;border:1px solid var(--border);
-  border-radius:9px;background:white;color:var(--text)
+nav button:hover{background:#ffffff22}
+.hero{
+  max-width:1100px;margin:auto;padding:48px 0 38px;
+  display:grid;grid-template-columns:1.5fr 1fr;gap:25px;align-items:center;
 }
-.full{width:100%}
-.table-wrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:530px}
-th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--border);font-size:13px}
-th{background:#f0f8f2;color:var(--dark)}
-.status{display:inline-block;border-radius:30px;padding:5px 9px;font-size:11px;font-weight:700}
-.approved{background:#d9f5e2;color:#087f4b}
-.pending{background:#fff0ce;color:#956000}
-.rejected{background:#ffe0e3;color:#b42332}
-.sidebar-layout{display:grid;grid-template-columns:210px 1fr;gap:18px}
-.sidebar{background:#086c41;color:white;border-radius:15px;padding:15px;height:max-content}
-.sidebar h3{padding:0 8px}
-.sidebar button{
-  display:block;width:100%;text-align:left;padding:11px 9px;
-  background:transparent;border:0;color:white;border-radius:7px;margin:3px 0
+.hero h1{font-size:clamp(32px,6vw,52px);margin:0 0 15px;line-height:1.12}
+.hero p{font-size:17px;line-height:1.7;color:#e0fff0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{
+  border:0;border-radius:10px;padding:12px 17px;
+  cursor:pointer;font-weight:bold;font-size:14px;
 }
-.sidebar button:hover{background:#ffffff25}
-.notice{padding:13px;border-radius:10px;background:#e9f8ef;color:#075c38;margin:12px 0}
-.result-sheet{
-  max-width:760px;margin:10px auto;background:white;
-  padding:25px;border:2px solid var(--green);border-radius:8px
+.btn-white{background:white;color:var(--dark)}
+.btn-green{background:var(--green);color:white}
+.btn-light{background:var(--light);color:var(--dark)}
+.hero-card{
+  background:white;color:var(--text);padding:25px;border-radius:20px;
+  box-shadow:0 12px 35px #003b281f;
 }
-.school-head{text-align:center;border-bottom:2px solid var(--green);padding-bottom:15px}
-.school-head h2{color:var(--green);margin:8px 0}
-.profile{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:18px 0}
-.avatar{
-  width:75px;height:85px;border-radius:10px;
-  background:var(--light);display:grid;place-items:center;font-size:40px
+.hero-card .emoji{font-size:40px}
+.hero-card h3{margin-bottom:8px}
+.hero-card p{color:var(--muted);font-size:14px}
+main{max-width:1100px;margin:auto;padding:25px 6% 45px}
+.section-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;margin:18px 0;
 }
-.result-total{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}
-.result-total div{padding:13px;background:var(--light);border-radius:9px;text-align:center}
-.result-total strong{display:block;font-size:20px;color:var(--green);margin-top:7px}
-footer{text-align:center;padding:24px;color:var(--muted);font-size:12px}
-.hidden{display:none!important}
-.empty{text-align:center;padding:25px;color:var(--muted)}
-@media(max-width:800px){
- .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .sidebar-layout{grid-template-columns:1fr}
- .sidebar{display:flex;flex-wrap:wrap;gap:5px}
- .sidebar h3{width:100%}
- .sidebar button{width:auto}
- .hero{grid-template-columns:1fr}
- .hero-art{font-size:65px}
+h2{margin:0;font-size:25px}
+.sub{color:var(--muted);line-height:1.6}
+.grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;
 }
-@media(max-width:480px){
- header{padding:13px}
- .logo{font-size:19px}
- .container{padding:18px 12px}
- .grid{grid-template-columns:1fr 1fr;gap:9px}
- .card{padding:13px}
- .stat{font-size:24px}
- .hero{padding:23px 17px}
- nav{padding:9px;gap:3px}
- nav button{padding:9px;font-size:12px}
- .result-sheet{padding:12px}
- .result-total strong{font-size:16px}
+.card{
+  background:white;border:1px solid var(--border);border-radius:16px;
+  padding:20px;box-shadow:0 4px 15px #123b2610;
 }
-@media print{
- header,nav,footer,.no-print{display:none!important}
- body{background:white}
- .container{padding:0;max-width:none}
- .page{display:none!important}
- #result.page.active{display:block!important}
- .result-sheet{border:1px solid #333;max-width:none;margin:0}
+.card-icon{
+  width:48px;height:48px;display:grid;place-items:center;
+  background:var(--light);border-radius:13px;font-size:24px;
+}
+.card h3{margin:15px 0 8px}
+.card p{color:var(--muted);line-height:1.6;font-size:14px}
+.card button{margin-top:8px}
+.panel{display:none}
+.panel.active{display:block}
+.resource-list{display:grid;gap:12px;margin-top:18px}
+.resource{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  background:white;border:1px solid var(--border);padding:16px;
+  border-radius:12px;flex-wrap:wrap;
+}
+.resource p{margin:6px 0 0;color:var(--muted);font-size:13px}
+input,select,textarea{
+  width:100%;padding:12px;border:1px solid #cbded3;border-radius:9px;
+  font-size:15px;background:white;margin:7px 0 14px;
+}
+label{font-size:14px;font-weight:bold}
+.form-box{max-width:520px;margin:25px auto}
+.notice{
+  padding:13px;border-radius:10px;background:#fff7dd;
+  color:#76550b;font-size:13px;line-height:1.6;margin-top:15px;
+}
+footer{
+  background:#063d2e;color:#d8f5e7;text-align:center;padding:25px 15px;
+  font-size:13px;line-height:1.8;
+}
+footer a{color:white}
+.empty{padding:25px;text-align:center;color:var(--muted)}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;padding:32px 0}
+  .grid{grid-template-columns:1fr}
+  header{padding:17px 5%}
+  main{padding:20px 5% 35px}
+  .logo{font-size:23px}
+  nav button{padding:9px;font-size:12px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">🌿 Study<span>Hub</span></div>
-  <div class="top-actions">
-    <button class="btn btn-light" onclick="showPage('home')">Home</button>
-    <button class="btn" onclick="showPage('login')">Login</button>
+  <div class="nav">
+    <div class="logo">Study<span>Hub</span></div>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('notes')">Study Notes</button>
+      <button onclick="showPage('quiz')">Quiz</button>
+      <button onclick="showPage('login')">My Account</button>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div>
+      <p style="font-weight:bold;letter-spacing:2px">LEARN • PRACTICE • GROW</p>
+      <h1>Your Learning Journey Starts Here</h1>
+      <p>Explore study resources, practise questions and build your knowledge with StudyHub.</p>
+      <div class="hero-actions">
+        <button class="btn btn-white" onclick="showPage('notes')">Explore Study Notes</button>
+        <button class="btn" style="background:#a7f3d0;color:#064e3b"
+          onclick="showPage('quiz')">Start a Quiz</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="emoji">📚</div>
+      <h3>Study smarter every day</h3>
+      <p>Keep your learning organised with subjects, practice questions and study resources in one place.</p>
+      <hr style="border:0;border-top:1px solid #e1eee6;margin:20px 0">
+      <strong>🌱 Small steps. Better learning.</strong>
+    </div>
   </div>
 </header>
 
-<nav id="mainNav">
-  <button class="active" onclick="showPage('home')">Home</button>
-  <button onclick="showPage('login')">Login</button>
-  <button onclick="openRole('student')">Student</button>
-  <button onclick="openRole('admin')">Admin</button>
-  <button onclick="openRole('ceo')">CEO</button>
-</nav>
-
 <main>
-<section id="home" class="page active">
- <div class="container">
-  <div class="hero">
-   <div>
-    <div class="muted">WELCOME TO STUDYHUB</div>
-    <h1>Check Your Results<br>Anytime, Anywhere</h1>
-    <p>A simple and modern student portal to view results,
-    manage academic records and track student progress.</p>
-    <button class="btn" onclick="showPage('result')">Check Results →</button>
-    <button class="btn btn-light" onclick="showPage('login')">Login to Portal</button>
-   </div>
-   <div class="hero-art">📚🎓</div>
-  </div>
-
-  <div class="section-title"><h2>Our Services</h2></div>
-  <div class="grid">
-   <div class="card"><div class="feature-icon">📊</div><h3>Quick Results</h3><p>View marks and academic performance.</p></div>
-   <div class="card"><div class="feature-icon">👨‍🎓</div><h3>Student Profile</h3><p>Access student information and results.</p></div>
-   <div class="card"><div class="feature-icon">🛡️</div><h3>Secure Access</h3><p>Role-based portal interface.</p></div>
-   <div class="card"><div class="feature-icon">💬</div><h3>Support</h3><p>Get help with portal questions.</p></div>
-  </div>
-
-  <div class="section-title"><h2>Find Your Result</h2></div>
-  <div class="card">
-   <form onsubmit="lookupResult(event)">
-    <div class="field"><label>Student Roll Number</label><input id="homeRoll" required placeholder="Enter roll number"></div>
-    <button class="btn" type="submit">Check Result</button>
-   </form>
-  </div>
- </div>
-</section>
-
-<section id="login" class="page">
- <div class="container">
-  <div class="card form-card">
-   <div style="text-align:center;font-size:45px">🌿</div>
-   <h2>Login to Continue</h2>
-   <p class="muted" style="text-align:center">Welcome to StudyHub Student Portal</p>
-   <form onsubmit="login(event)">
-    <div class="field">
-     <label>Select Role</label>
-     <select id="role">
-      <option value="student">Student</option>
-      <option value="admin">Admin</option>
-      <option value="ceo">CEO</option>
-     </select>
+  <section id="home" class="panel active">
+    <div class="section-head">
+      <div>
+        <h2>Explore StudyHub</h2>
+        <p class="sub">Choose a section to get started.</p>
+      </div>
     </div>
-    <div class="field"><label>Username / Email</label><input id="username" required placeholder="Enter username"></div>
-    <div class="field"><label>Password</label><input id="password" type="password" required placeholder="Enter password"></div>
-    <button class="btn full" type="submit">Login</button>
-   </form>
-   <p class="muted" style="text-align:center">This is a front-end design demo. Real accounts require a secure backend.</p>
-  </div>
- </div>
-</section>
 
-<section id="student" class="page">
- <div class="container">
-  <div class="section-title">
-   <h2>Student Dashboard</h2>
-   <button class="btn btn-light" onclick="logout()">Sign Out</button>
-  </div>
-  <div class="grid">
-   <div class="card"><div class="muted">My Results</div><div class="stat">5</div><div class="muted">Available records</div></div>
-   <div class="card"><div class="muted">Average Marks</div><div class="stat">80%</div><div class="muted">Sample data</div></div>
-   <div class="card"><div class="muted">Notifications</div><div class="stat">2</div><div class="muted">Sample notices</div></div>
-   <div class="card"><div class="muted">Profile</div><div class="stat">✓</div><div class="muted">Student account</div></div>
-  </div>
-  <div class="section-title"><h2>Recent Results</h2></div>
-  <div class="card table-wrap">
-   <table>
-    <thead><tr><th>Subject</th><th>Marks</th><th>Grade</th></tr></thead>
-    <tbody>
-     <tr><td>Urdu</td><td>85 / 100</td><td>A</td></tr>
-     <tr><td>English</td><td>82 / 100</td><td>A</td></tr>
-     <tr><td>Mathematics</td><td>90 / 100</td><td>A+</td></tr>
-     <tr><td>Islamiyat</td><td>88 / 100</td><td>A</td></tr>
-     <tr><td>General Knowledge</td><td>80 / 100</td><td>A</td></tr>
-    </tbody>
-   </table>
-   <br><button class="btn" onclick="showPage('result')">View Result Card</button>
-  </div>
- </div>
-</section>
-
-<section id="admin" class="page">
- <div class="container">
-  <div class="section-title"><h2>Admin Dashboard</h2><button class="btn btn-light" onclick="logout()">Sign Out</button></div>
-  <div class="grid">
-   <div class="card"><div class="muted">Total Students</div><div class="stat">248</div></div>
-   <div class="card"><div class="muted">Pending Applications</div><div class="stat" style="color:var(--orange)">12</div></div>
-   <div class="card"><div class="muted">Approved</div><div class="stat">220</div></div>
-   <div class="card"><div class="muted">Rejected</div><div class="stat" style="color:var(--red)">16</div></div>
-  </div>
-  <div class="section-title"><h2>Application Management</h2></div>
-  <div class="card table-wrap">
-   <table>
-    <thead><tr><th>Student</th><th>Class</th><th>Status</th><th>Action</th></tr></thead>
-    <tbody id="adminRows"></tbody>
-   </table>
-   <p class="muted">Demo records only. Decisions are kept in this browser session.</p>
-  </div>
- </div>
-</section>
-
-<section id="ceo" class="page">
- <div class="container">
-  <div class="section-title"><h2>CEO Dashboard</h2><button class="btn btn-light" onclick="logout()">Sign Out</button></div>
-  <div class="grid">
-   <div class="card"><div class="muted">Total Applications</div><div class="stat">248</div></div>
-   <div class="card"><div class="muted">Approved</div><div class="stat">220</div></div>
-   <div class="card"><div class="muted">Pending</div><div class="stat" style="color:var(--orange)" id="ceoPending">12</div></div>
-   <div class="card"><div class="muted">Rejected</div><div class="stat" style="color:var(--red)">16</div></div>
-  </div>
-  <div class="section-title"><h2>Final Approval Panel</h2></div>
-  <div class="card table-wrap">
-   <table>
-    <thead><tr><th>Student</th><th>Class</th><th>Status</th><th>Action</th></tr></thead>
-    <tbody id="ceoRows"></tbody>
-   </table>
-   <p class="muted">This demonstration does not submit decisions to a server.</p>
-  </div>
- </div>
-</section>
-
-<section id="result" class="page">
- <div class="container">
-  <div class="no-print card" style="max-width:760px;margin:0 auto 15px">
-   <h3>Find Student Result</h3>
-   <form onsubmit="lookupResult(event)">
-    <div class="field"><label>Roll Number</label><input id="resultRoll" placeholder="Try 101" required></div>
-    <button class="btn" type="submit">Search Result</button>
-   </form>
-   <p class="muted">Sample roll numbers: 101, 102, 103.</p>
-   <div id="resultMessage" class="notice hidden"></div>
-  </div>
-  <div id="resultCard" class="result-sheet">
-   <div class="school-head">
-    <div style="font-size:35px">🎓</div>
-    <h2>StudyHub School Portal</h2>
-    <div>Student Result Card</div>
-    <div class="muted">Academic Session 2026</div>
-   </div>
-   <div class="profile">
-    <div>
-     <p><strong>Name:</strong> <span id="rName">Ahmed Raza</span></p>
-     <p><strong>Class:</strong> <span id="rClass">5</span></p>
-     <p><strong>Roll No:</strong> <span id="rRoll">101</span></p>
-     <p><strong>Term:</strong> First Term</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>Study Notes</h3>
+        <p>Browse subject notes and learning material.</p>
+        <button class="btn btn-green" onclick="showPage('notes')">Open Notes</button>
+      </div>
+      <div class="card">
+        <div class="card-icon">✍️</div>
+        <h3>Practice Quiz</h3>
+        <p>Test your knowledge with multiple-choice questions.</p>
+        <button class="btn btn-green" onclick="showPage('quiz')">Start Quiz</button>
+      </div>
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <h3>Student Account</h3>
+        <p>Enter your name to open a simple local student profile.</p>
+        <button class="btn btn-green" onclick="showPage('login')">Open Account</button>
+      </div>
     </div>
-    <div class="avatar">👨‍🎓</div>
-   </div>
-   <div class="table-wrap">
-    <table>
-     <thead><tr><th>Subject</th><th>Obtained Marks</th><th>Total Marks</th></tr></thead>
-     <tbody id="resultSubjects"></tbody>
-    </table>
-   </div>
-   <div class="result-total">
-    <div>Total Marks<strong id="rTotal">425 / 500</strong></div>
-    <div>Percentage<strong id="rPercent">85%</strong></div>
-    <div>Position<strong id="rPosition">1st</strong></div>
-   </div>
-   <p style="text-align:center;margin-top:25px">Result generated by StudyHub Portal</p>
-  </div>
-  <div class="no-print" style="text-align:center;margin:20px">
-   <button class="btn" onclick="window.print()">🖨 Print / Save PDF</button>
-   <button class="btn btn-light" onclick="showPage('home')">Back Home</button>
-  </div>
- </div>
-</section>
+
+    <div class="section-head" style="margin-top:38px">
+      <div>
+        <h2>Popular Subjects</h2>
+        <p class="sub">Start exploring your favourite subject.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="card-icon">➗</div><h3>Mathematics</h3><p>Numbers, calculations and problem-solving practice.</p></div>
+      <div class="card"><div class="card-icon">🔤</div><h3>English</h3><p>Vocabulary, grammar and reading practice.</p></div>
+      <div class="card"><div class="card-icon">🌍</div><h3>General Knowledge</h3><p>Explore facts about the world around you.</p></div>
+    </div>
+  </section>
+
+  <section id="notes" class="panel">
+    <h2>Study Notes</h2>
+    <p class="sub">Select a subject to view its resources.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div><strong>➗ Mathematics</strong><p>Mathematics study resources</p></div>
+        <button class="btn btn-light" onclick="openResource('Mathematics')">View</button>
+      </div>
+      <div class="resource">
+        <div><strong>🔤 English</strong><p>English study resources</p></div>
+        <button class="btn btn-light" onclick="openResource('English')">View</button>
+      </div>
+      <div class="resource">
+        <div><strong>🌍 General Knowledge</strong><p>General knowledge resources</p></div>
+        <button class="btn btn-light" onclick="openResource('General Knowledge')">View</button>
+      </div>
+      <div class="resource">
+        <div><strong>💻 Computer Studies</strong><p>Computer learning resources</p></div>
+        <button class="btn btn-light" onclick="openResource('Computer Studies')">View</button>
+      </div>
+      <div class="resource">
+        <div><strong>📚 Urdu</strong><p>Urdu learning resources</p></div>
+        <button class="btn btn-light" onclick="openResource('Urdu')">View</button>
+      </div>
+    </div>
+    <div id="resourceMessage" class="notice" style="display:none"></div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <h2>Quick Practice Quiz</h2>
+    <p class="sub">Answer these three general knowledge questions.</p>
+    <div class="card" style="margin-top:18px">
+      <form id="quizForm">
+        <label>1. Which planet is known as the Red Planet?</label>
+        <select name="q1" required>
+          <option value="">Choose an answer</option>
+          <option value="Earth">Earth</option>
+          <option value="Mars">Mars</option>
+          <option value="Venus">Venus</option>
+        </select>
+        <label>2. How many days are there in a week?</label>
+        <select name="q2" required>
+          <option value="">Choose an answer</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+          <option value="10">10</option>
+        </select>
+        <label>3. Which language is commonly used to structure web pages?</label>
+        <select name="q3" required>
+          <option value="">Choose an answer</option>
+          <option value="HTML">HTML</option>
+          <option value="Excel">Excel</option>
+          <option value="Paint">Paint</option>
+        </select>
+        <button class="btn btn-green" type="submit">Check Answers</button>
+      </form>
+      <div id="quizResult" style="margin-top:16px;font-weight:bold" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="login" class="panel">
+    <div class="card form-box">
+      <h2>Student Profile</h2>
+      <p class="sub">Enter your name to view a welcome message.</p>
+      <form id="profileForm">
+        <label for="studentName">Your Name</label>
+        <input id="studentName" type="text" placeholder="Enter your name" required maxlength="60">
+        <label for="studentClass">Your Class</label>
+        <select id="studentClass" required>
+          <option value="">Select your class</option>
+          <option>Class 6</option>
+          <option>Class 7</option>
+          <option>Class 8</option>
+          <option>Class 9</option>
+          <option>Class 10</option>
+          <option>Other</option>
+        </select>
+        <button class="btn btn-green" type="submit">Open Profile</button>
+      </form>
+      <div id="profileResult" aria-live="polite"></div>
+      <div class="notice">This is a basic demonstration profile. It does not create a secure account or store information in a database.</div>
+    </div>
+  </section>
 </main>
 
-<footer>© 2026 StudyHub Portal | Student Support Team</footer>
+<footer>
+  <strong>StudyHub</strong><br>
+  Books • Notes • Learning Resources<br>
+  © <span id="year"></span> StudyHub. All rights reserved.
+</footer>
 
 <script>
-const students=[
- {roll:"101",name:"Ahmed Raza",cls:"5",marks:[85,82,90,88,80],position:"1st"},
- {roll:"102",name:"Ali Hassan",cls:"6",marks:[78,85,80,82,75],position:"2nd"},
- {roll:"103",name:"Ayesha Noor",cls:"7",marks:[92,90,95,88,91],position:"1st"}
-];
-const subjects=["Urdu","English","Mathematics","Islamiyat","General Knowledge"];
-let applications=[
- {name:"Ayesha Khan",cls:"5",status:"Pending"},
- {name:"Usman Ali",cls:"6",status:"Pending"},
- {name:"Zainab Bibi",cls:"4",status:"Pending"},
- {name:"Muhammad Ali",cls:"7",status:"Approved"}
-];
-let currentRole="";
-
-function showPage(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- const page=document.getElementById(id);
- if(page)page.classList.add("active");
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function openRole(role){
- document.getElementById("role").value=role;
- showPage("login");
-}
-function login(e){
- e.preventDefault();
- const role=document.getElementById("role").value;
- const username=document.getElementById("username").value.trim();
- const password=document.getElementById("password").value;
- if(!username||!password)return;
- // Demo navigation only, NOT real authentication.
- currentRole=role;
- showPage(role);
- if(role==="admin")renderApplications("adminRows","admin");
- if(role==="ceo")renderApplications("ceoRows","ceo");
-}
-function logout(){
- currentRole="";
- showPage("home");
-}
-function renderApplications(target,role){
- const tbody=document.getElementById(target);
- tbody.innerHTML="";
- applications.forEach((a,i)=>{
-  if(role==="ceo"&&a.status!=="Forwarded to CEO"&&a.status!=="Pending")return;
-  const tr=document.createElement("tr");
-  const name=document.createElement("td");name.textContent=a.name;
-  const cls=document.createElement("td");cls.textContent=a.cls;
-  const status=document.createElement("td");
-  const badge=document.createElement("span");
-  badge.className="status "+(a.status==="Approved"?"approved":a.status==="Rejected"?"rejected":"pending");
-  badge.textContent=a.status;status.appendChild(badge);
-  const action=document.createElement("td");
-  if(a.status==="Pending"&&role==="admin"){
-   action.append(
-    actionButton("Forward", "btn btn-small",()=>{a.status="Forwarded to CEO";refreshTables()}),
-    actionButton("Reject","btn btn-red btn-small",()=>{a.status="Rejected";refreshTables()})
-   );
-  }else if(role==="ceo"&&(a.status==="Pending"||a.status==="Forwarded to CEO")){
-   action.append(
-    actionButton("Approve","btn btn-small",()=>{a.status="Approved";refreshTables()}),
-    actionButton("Reject","btn btn-red btn-small",()=>{a.status="Rejected";refreshTables()})
-   );
-  }else action.textContent="—";
-  tr.append(name,cls,status,action);tbody.appendChild(tr);
- });
-}
-function actionButton(label,cls,fn){
- const b=document.createElement("button");
- b.className=cls;b.textContent=label;b.style.margin="2px";b.onclick=fn;return b;
-}
-function refreshTables(){
- renderApplications("adminRows","admin");
- renderApplications("ceoRows","ceo");
- document.getElementById("ceoPending").textContent=
- applications.filter(a=>a.status==="Pending"||a.status==="Forwarded to CEO").length;
-}
-function lookupResult(e){
- e.preventDefault();
- const roll=(e.submitter&&e.submitter.form.querySelector("input")?.value||
- document.getElementById("homeRoll").value||
- document.getElementById("resultRoll").value).trim();
- const student=students.find(s=>s.roll===roll);
- showPage("result");
- const msg=document.getElementById("resultMessage");
- msg.classList.remove("hidden");
- if(!student){
-  msg.textContent="No sample result found for this roll number. Try 101, 102 or 103.";
-  document.getElementById("resultCard").classList.add("hidden");
-  return;
- }
- msg.textContent="Result found successfully.";
- document.getElementById("resultCard").classList.remove("hidden");
- document.getElementById("rName").textContent=student.name;
- document.getElementById("rClass").textContent=student.cls;
- document.getElementById("rRoll").textContent=student.roll;
- document.getElementById("rTotal").textContent=
- student.marks.reduce((a,b)=>a+b,0)+" / "+(subjects.length*100);
- document.getElementById("rPercent").textContent=
- (student.marks.reduce((a,b)=>a+b,0)/(subjects.length*100)*100).toFixed(1)+"%";
- document.getElementById("rPosition").textContent=student.position;
- const body=document.getElementById("resultSubjects");body.innerHTML="";
- subjects.forEach((s,i)=>{
-  const tr=document.createElement("tr");
-  [s,student.marks[i],100].forEach(v=>{
-   const td=document.createElement("td");td.textContent=v;tr.appendChild(td);
+function showPage(page){
+  document.querySelectorAll('.panel').forEach(function(section){
+    section.classList.remove('active');
   });
-  body.appendChild(tr);
- });
+  var selected=document.getElementById(page);
+  if(selected) selected.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-refreshTables();
+
+function openResource(subject){
+  var box=document.getElementById('resourceMessage');
+  box.style.display='block';
+  box.textContent=subject + ': Study materials have not been added yet. Add your own notes or links to this section when they are ready.';
+}
+
+document.getElementById('quizForm').addEventListener('submit',function(event){
+  event.preventDefault();
+  var data=new FormData(event.target);
+  var score=0;
+  if(data.get('q1')==='Mars') score++;
+  if(data.get('q2')==='7') score++;
+  if(data.get('q3')==='HTML') score++;
+  document.getElementById('quizResult').textContent=
+    'Your score: '+score+' out of 3. '+(score===3?'Excellent work!':'Keep practising and try again.');
+});
+
+document.getElementById('profileForm').addEventListener('submit',function(event){
+  event.preventDefault();
+  var name=document.getElementById('studentName').value.trim();
+  var studentClass=document.getElementById('studentClass').value;
+  if(!name || !studentClass) return;
+  var result=document.getElementById('profileResult');
+  result.innerHTML='';
+  var heading=document.createElement('h3');
+  heading.textContent='Welcome, '+name+'!';
+  var paragraph=document.createElement('p');
+  paragraph.textContent='Selected class: '+studentClass;
+  result.appendChild(heading);
+  result.appendChild(paragraph);
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
-    </html>
-  
+</html>
